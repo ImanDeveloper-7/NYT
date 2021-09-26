@@ -132,7 +132,7 @@
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8AB-D8-GI4">
                                 <rect key="frame" x="20" y="125" width="374" height="34"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="34" id="MtB-BF-L8O"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="374" id="b74-zc-rlU"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -140,6 +140,10 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SYX-aa-yUl">
                                 <rect key="frame" x="123" y="217" width="168" height="54"/>
                                 <color key="backgroundColor" white="0.15042456800000001" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="168" id="5nk-7X-B0R"/>
+                                    <constraint firstAttribute="height" constant="54" id="vX2-tP-hZV"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
                                 <state key="normal" title="Search">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -152,13 +156,12 @@
                         <viewLayoutGuide key="safeArea" id="Kpb-1M-mgH"/>
                         <color key="backgroundColor" systemColor="systemGray2Color"/>
                         <constraints>
-                            <constraint firstItem="Kpb-1M-mgH" firstAttribute="bottom" secondItem="SYX-aa-yUl" secondAttribute="bottom" constant="591" id="G6s-c7-TIE"/>
-                            <constraint firstItem="SYX-aa-yUl" firstAttribute="leading" secondItem="Kpb-1M-mgH" secondAttribute="leading" constant="123" id="I57-im-ggJ"/>
-                            <constraint firstItem="8AB-D8-GI4" firstAttribute="leading" secondItem="ZGf-0E-fiq" secondAttribute="leadingMargin" id="Ss3-Nl-ggl"/>
-                            <constraint firstItem="8AB-D8-GI4" firstAttribute="trailing" secondItem="ZGf-0E-fiq" secondAttribute="trailingMargin" id="aVX-1h-Vad"/>
-                            <constraint firstItem="8AB-D8-GI4" firstAttribute="top" secondItem="Kpb-1M-mgH" secondAttribute="top" constant="81" id="foE-HW-upG"/>
-                            <constraint firstItem="SYX-aa-yUl" firstAttribute="top" secondItem="8AB-D8-GI4" secondAttribute="bottom" constant="58" id="wOp-Kx-GnZ"/>
-                            <constraint firstItem="8AB-D8-GI4" firstAttribute="centerX" secondItem="SYX-aa-yUl" secondAttribute="centerX" id="z4p-LU-x0h"/>
+                            <constraint firstItem="SYX-aa-yUl" firstAttribute="leading" secondItem="Kpb-1M-mgH" secondAttribute="leading" constant="123" id="Ubu-LY-7SH"/>
+                            <constraint firstItem="Kpb-1M-mgH" firstAttribute="trailing" secondItem="SYX-aa-yUl" secondAttribute="trailing" constant="123" id="agA-32-Vdg"/>
+                            <constraint firstItem="SYX-aa-yUl" firstAttribute="top" secondItem="8AB-D8-GI4" secondAttribute="bottom" constant="58" id="bQl-az-8u5"/>
+                            <constraint firstItem="8AB-D8-GI4" firstAttribute="top" secondItem="Kpb-1M-mgH" secondAttribute="top" constant="81" id="gaD-lS-O1h"/>
+                            <constraint firstItem="8AB-D8-GI4" firstAttribute="leading" secondItem="Kpb-1M-mgH" secondAttribute="leading" constant="20" id="nY7-1j-q80"/>
+                            <constraint firstItem="Kpb-1M-mgH" firstAttribute="trailing" secondItem="8AB-D8-GI4" secondAttribute="trailing" constant="20" id="neL-PA-d2X"/>
                         </constraints>
                     </view>
                     <connections>
