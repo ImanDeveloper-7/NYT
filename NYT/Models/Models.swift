@@ -16,7 +16,7 @@ struct News: Codable {
     let published_date: String?
 }
 
-struct Root: Codable {
+struct ArticleSearch: Codable {
     let response: Article
 }
 

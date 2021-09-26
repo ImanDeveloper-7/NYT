@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MainViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class MainViewController: UIViewController {
     
     var mainView = [MainView]()
     
@@ -18,7 +18,11 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         mainView.append(MainView.init(headerTitle: "Search", subTitles: ["Search Articles"]))
         mainView.append(MainView.init(headerTitle: "Popular", subTitles: ["Most Viewd", "Most Shared", "Most Emailed"]))
     }
-    
+}
+
+//MARK: - TableView DataSource Methods
+
+extension MainViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return mainView.count
     }
@@ -36,7 +40,11 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return mainView[section].headerTitle
     }
-    
+}
+
+//MARK: - TableView Delegate Methods
+
+extension MainViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let currentCell = tableView.cellForRow(at: indexPath)! as UITableViewCell
@@ -46,19 +54,19 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
             }
         } else if currentCell.textLabel?.text == "Most Viewd" {
             if let vc = storyboard?.instantiateViewController(identifier: "ArticleslistViewController") as? ArticleslistViewController {
-                vc.url = K.DomainUrl + "viewed/7.json?api-key=" + K.apiKey
+                vc.url = K.mostViewdUrl
                 navigationController?.pushViewController(vc, animated: true)
             }
             
         } else if currentCell.textLabel?.text == "Most Shared" {
             if let vc = storyboard?.instantiateViewController(identifier: "ArticleslistViewController") as? ArticleslistViewController {
-                vc.url = K.DomainUrl + "shared/7/facebook.json?api-key=" + K.apiKey
+                vc.url = K.mostSharedUrl
                 navigationController?.pushViewController(vc, animated: true)
             }
             
         } else if currentCell.textLabel?.text == "Most Emailed" {
             if let vc = storyboard?.instantiateViewController(identifier: "ArticleslistViewController") as? ArticleslistViewController {
-                vc.url = K.DomainUrl + "emailed/7.json?api-key=" + K.apiKey
+                vc.url = K.mostEmailedUrl
                 navigationController?.pushViewController(vc, animated: true)
             }
         }

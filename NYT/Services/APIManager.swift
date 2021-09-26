@@ -30,7 +30,7 @@ class APIManager {
         }
     }
     
-    static func fetchArticlesSearch(urlString: String, completion: @escaping (Result<Root, Error>) -> Void) {
+    static func fetchArticlesSearch(urlString: String, completion: @escaping (Result<ArticleSearch, Error>) -> Void) {
         if let url = URL(string: urlString) {
             let task = URLSession.shared.dataTask(with: url) { data, response, error in
                 if error != nil {
@@ -40,7 +40,7 @@ class APIManager {
                 if let safeData = data {
                     let decoder = JSONDecoder()
                     do {
-                        let jsonData = try decoder.decode(Root.self, from: safeData)
+                        let jsonData = try decoder.decode(ArticleSearch.self, from: safeData)
                         completion(.success(jsonData))
                     } catch {
                         completion(.failure(error))
@@ -50,5 +50,4 @@ class APIManager {
             task.resume()
         }
     }
-    
 }

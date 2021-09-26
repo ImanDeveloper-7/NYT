@@ -28,8 +28,6 @@ class ArticleSearchTableViewController: UITableViewController {
         }
     }
 
-    // MARK: - Table view data source
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return articles.count
     }
@@ -39,6 +37,10 @@ class ArticleSearchTableViewController: UITableViewController {
         cell.textLabel?.text = articles[indexPath.row].lead_paragraph
         cell.detailTextLabel?.text = articles[indexPath.row].pub_date
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 
 }

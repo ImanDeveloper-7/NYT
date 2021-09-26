@@ -63,7 +63,7 @@ class NYTTests: XCTestCase {
             }
             """
         let jsonData = json.data(using: .utf8)!
-        let newsData = try! JSONDecoder().decode(Root.self, from: jsonData)
+        let newsData = try! JSONDecoder().decode(ArticleSearch.self, from: jsonData)
         
         XCTAssertEqual("Canada may be known for its cold weather, but this summer, parts of the country were an inferno.", newsData.response.docs[0].lead_paragraph)
     }
