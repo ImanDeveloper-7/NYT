@@ -40,6 +40,13 @@ extension MainViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return mainView[section].headerTitle
     }
+    
+    func pushVC(url: String) {
+        if let vc = storyboard?.instantiateViewController(identifier: "ArticleslistViewController") as? ArticleslistViewController {
+            vc.url = url
+            navigationController?.pushViewController(vc, animated: true)
+        }
+    }
 }
 
 //MARK: - TableView Delegate Methods
@@ -48,27 +55,20 @@ extension MainViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let currentCell = tableView.cellForRow(at: indexPath)! as UITableViewCell
-        if  currentCell.textLabel?.text == "Search Articles" {
+        
+        switch currentCell.textLabel?.text {
+        case "Search Articles":
             if let vc = storyboard?.instantiateViewController(identifier: "SearchViewController") as? SearchViewController {
                 navigationController?.pushViewController(vc, animated: true)
             }
-        } else if currentCell.textLabel?.text == "Most Viewd" {
-            if let vc = storyboard?.instantiateViewController(identifier: "ArticleslistViewController") as? ArticleslistViewController {
-                vc.url = K.mostViewdUrl
-                navigationController?.pushViewController(vc, animated: true)
-            }
-            
-        } else if currentCell.textLabel?.text == "Most Shared" {
-            if let vc = storyboard?.instantiateViewController(identifier: "ArticleslistViewController") as? ArticleslistViewController {
-                vc.url = K.mostSharedUrl
-                navigationController?.pushViewController(vc, animated: true)
-            }
-            
-        } else if currentCell.textLabel?.text == "Most Emailed" {
-            if let vc = storyboard?.instantiateViewController(identifier: "ArticleslistViewController") as? ArticleslistViewController {
-                vc.url = K.mostEmailedUrl
-                navigationController?.pushViewController(vc, animated: true)
-            }
+        case "Most Viewd":
+            self.pushVC(url: K.mostViewdUrl)
+        case "Most Shared":
+            self.pushVC(url: K.mostSharedUrl)
+        case "Most Emailed":
+            self.pushVC(url: K.mostEmailedUrl)
+        default:
+            break
         }
     }
 }
